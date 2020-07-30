@@ -1,4 +1,4 @@
-package com.nicksaid.cusoMC;
+package com.nicksaid.cursoMC;
 
 import java.util.Arrays;
 
@@ -7,10 +7,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.nicksaid.cusoMC.domain.Categoria;
-import com.nicksaid.cusoMC.domain.Produto;
-import com.nicksaid.cusoMC.repositories.CategoriaRepository;
-import com.nicksaid.cusoMC.repositories.ProdutoRepository;
+import com.nicksaid.cursoMC.domain.Categoria;
+import com.nicksaid.cursoMC.domain.Produto;
+import com.nicksaid.cursoMC.repositories.CategoriaRepository;
+import com.nicksaid.cursoMC.repositories.ProdutoRepository;
 
 @SpringBootApplication
 public class CursoMcApplication implements CommandLineRunner {

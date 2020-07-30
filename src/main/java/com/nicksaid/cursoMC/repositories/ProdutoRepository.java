@@ -1,9 +1,9 @@
-package com.nicksaid.cusoMC.repositories;
+package com.nicksaid.cursoMC.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nicksaid.cusoMC.domain.Produto;
+import com.nicksaid.cursoMC.domain.Produto;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
