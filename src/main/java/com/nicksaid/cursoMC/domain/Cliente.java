@@ -6,20 +6,31 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import com.nicksaid.cursoMC.domain.enums.TipoCliente;
 
+@Entity
 public class Cliente implements Serializable {
-
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String nome;
-	private String email;
-	private String cpfOuCnpj;
+	private String nome, email, cpfOuCnpj;
 	private Integer tipo; //armazenar internamento como Inteiro, porém para o externo a classe vai expor TipoCliente 
 	
+	@OneToMany(mappedBy="cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
+	@ElementCollection
+	@CollectionTable(name="TELEFONE")
 	private Set<String> telefones = new HashSet<>(); //representação de telefone como conjunto de String
 	
 	public Cliente() {
