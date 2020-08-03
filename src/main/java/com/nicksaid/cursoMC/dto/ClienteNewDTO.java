@@ -2,15 +2,46 @@ package com.nicksaid.cursoMC.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.nicksaid.cursoMC.services.validation.ClienteInsert;
+
+@ClienteInsert //Anotando nosso DTO com a nova anotação criada
 public class ClienteNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@NotEmpty(message="Preenchimento obrigatório!")
+	@Length(min=5, max=120, message="O tamnho deve ser entre 5 e 120 caracteres!")
+	private String nome; 
 	
-	private String nome, email, cpfOuCnpj;
+	@NotEmpty(message="Preenchimento obrigatório!")
+	@Email(message="E-mail inválido!")
+	private String email;
+	
+	@NotEmpty(message="Preenchimento obrigatório! CPF/CNPJ")
+	private String cpfOuCnpj;
+	
 	private Integer tipo;
-	private String logradouro, cep, bairro, complemento,numero;
 	
+	@NotEmpty(message="Preenchimento obrigatório!")
+	private String logradouro;
+	
+	@NotEmpty(message="Preenchimento obrigatório!")
+	private String cep;
+	
+	private String bairro;
+	
+	private String complemento;
+	
+	@NotEmpty(message="Preenchimento obrigatório!")
+	private String numero;
+	
+	@NotEmpty(message="Preenchimento obrigatório! Ao menos um Telefone deve ser cadastrado.")
 	private String telefone1;
+	
 	private String telefone2;
 	private String telefone3;
 	
