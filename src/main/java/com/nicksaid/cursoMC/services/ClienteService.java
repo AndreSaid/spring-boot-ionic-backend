@@ -3,8 +3,6 @@ package com.nicksaid.cursoMC.services;
 import java.util.List;
 import java.util.Optional;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -19,7 +17,6 @@ import com.nicksaid.cursoMC.domain.Endereco;
 import com.nicksaid.cursoMC.domain.enums.TipoCliente;
 import com.nicksaid.cursoMC.dto.ClienteDTO;
 import com.nicksaid.cursoMC.dto.ClienteNewDTO;
-import com.nicksaid.cursoMC.repositories.CidadeRepository;
 import com.nicksaid.cursoMC.repositories.ClienteRepository;
 import com.nicksaid.cursoMC.repositories.EnderecoRepository;
 import com.nicksaid.cursoMC.services.exception.DataIntegrityException;
@@ -62,7 +59,7 @@ public class ClienteService {
 			repo.deleteById(id);
 			}
 		catch(DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possível excluir porque há entidades relacionadas!");
+			throw new DataIntegrityException("Não é possível excluir porque há pedidos relacionados!");
 		}
 	}
 	
