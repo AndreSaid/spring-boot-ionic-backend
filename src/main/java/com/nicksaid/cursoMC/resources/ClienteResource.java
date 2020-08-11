@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +47,7 @@ public class ClienteResource {
 		}
 	
 	
-	@RequestMapping(value="/{id}", method = RequestMethod.PUT)//metodo PUT dentro das boas praticas
+	@RequestMapping(value="/{id}", method = RequestMethod.PUT)//metodo PUT dentro das boas praticas para alterar um CLIENTE
 	public ResponseEntity<Void> update(@Valid @RequestBody ClienteDTO objDto, @PathVariable Integer id){
 		Cliente obj = service.fromDTO(objDto);
 		obj.setId(id);
@@ -54,13 +55,15 @@ public class ClienteResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)//metodo DELETE dentro das boas praticas
+	@PreAuthorize("hasAnyRole('ADMIN')")
+	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)//metodo DELETE dentro das boas praticas para deletar CLIENTE
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	
 	}
 	
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(method= RequestMethod.GET)// GET para mostrar todas as categorias
 	public ResponseEntity<List<ClienteDTO>> findAll(){
 		List<Cliente> list = service.findAll();
