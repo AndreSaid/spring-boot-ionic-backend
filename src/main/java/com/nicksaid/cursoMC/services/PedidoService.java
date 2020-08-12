@@ -3,10 +3,15 @@ package com.nicksaid.cursoMC.services;
 import java.util.Date;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.stereotype.Service;
+
+import com.nicksaid.cursoMC.domain.Cliente;
 import com.nicksaid.cursoMC.domain.ItemPedido;
 import com.nicksaid.cursoMC.domain.PagamentoComBoleto;
 import com.nicksaid.cursoMC.domain.Pedido;
@@ -14,6 +19,8 @@ import com.nicksaid.cursoMC.domain.enums.EstadoPagamento;
 import com.nicksaid.cursoMC.repositories.ItemPedidoRepository;
 import com.nicksaid.cursoMC.repositories.PagamentoRepository;
 import com.nicksaid.cursoMC.repositories.PedidoRepository;
+import com.nicksaid.cursoMC.security.UserSS;
+import com.nicksaid.cursoMC.services.exception.AuthorizationException;
 import com.nicksaid.cursoMC.services.exception.ObjectNotFoundException;
 
 
@@ -70,5 +77,15 @@ public class PedidoService {
 		return obj;
 	}
 	
+	
+	public Page<Pedido> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
+		UserSS user = UserService.authenticated();
+		if (user == null) {
+			throw new AuthorizationException("Acesso negado");
+		}
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		Cliente cliente =  clienteService.find(user.getId());
+		return repo.findByCliente(cliente, pageRequest);
+	}
 }
 	
