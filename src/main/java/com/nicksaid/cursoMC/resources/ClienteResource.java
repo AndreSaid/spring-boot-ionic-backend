@@ -87,7 +87,7 @@ public class ClienteResource {
 
 	@RequestMapping(value = "/picture", method = RequestMethod.POST) // metodo POST dentro das boas praticas
 	public ResponseEntity<Void> uploadProfilePicture(@RequestParam(name = "file") MultipartFile file) {
-		URI uri = service.uplodProfilePecture(file);
+		URI uri = service.uploadProfilePicture(file);
 
 		return ResponseEntity.created(uri).build();
 	}
