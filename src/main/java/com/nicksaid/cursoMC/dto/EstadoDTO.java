@@ -27,12 +27,14 @@ public class EstadoDTO implements Serializable {
 		this.id = id;
 	}
 
-	public String getEstado() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setEstado(String estado) {
-		this.nome = estado;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
+
+
 
 }
