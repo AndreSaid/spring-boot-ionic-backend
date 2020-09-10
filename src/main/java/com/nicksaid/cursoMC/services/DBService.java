@@ -197,16 +197,95 @@ public class DBService {
 		
 		Estado est1 = new Estado(null,"Minas Gerais");
 		Estado est2 = new Estado(null, "São Paulo");
+		Estado est3 = new Estado(null, "Acre");
+		Estado est4 = new Estado(null, "Alagoas");
+		Estado est5 = new Estado(null, "Amapá");
+		Estado est6 = new Estado(null, "Amazonas");
+		Estado est7 = new Estado(null, "Bahia");
+		Estado est8 = new Estado(null, "Ceará");
+		Estado est9 = new Estado(null, "Espírito Santo");
+		Estado est10 = new Estado(null, "Goiás");
+		Estado est11 = new Estado(null, "Maranhão");
+		Estado est12 = new Estado(null, "Mato Grosso");
+		Estado est13 = new Estado(null, "Mato Grosso do Sul");
+		Estado est14 = new Estado(null, "Pará");
+		Estado est15 = new Estado(null, "Paraíba");
+		Estado est16 = new Estado(null, "Paraná");
+		Estado est17 = new Estado(null, "Pernambuco");
+		Estado est18 = new Estado(null, "Piauí");
+		Estado est19 = new Estado(null, "Rio de Janeiro");
+		Estado est20 = new Estado(null, "Rio grande do Norte");
+		Estado est21 = new Estado(null, "Rio grande do Sul");
+		Estado est22 = new Estado(null, "Rondônia");
+		Estado est23 = new Estado(null, "Roraima");
+		Estado est24 = new Estado(null, "Santa Catarina");
+		Estado est25 = new Estado(null, "Sergipe");
+		Estado est26 = new Estado(null, "Tocantins");
+		Estado est27 = new Estado(null, "Distrito Federal");
+		
 		
 		Cidade c1 = new Cidade(null, "Uberlândia", est1);
 		Cidade c2 = new Cidade(null, "São Paulo", est2);
 		Cidade c3 = new Cidade(null, "Campinas", est2);
+		Cidade c4 = new Cidade(null, "Rio Branco", est3);
+		Cidade c5 = new Cidade(null, "Maceió", est4);
+		Cidade c6 = new Cidade(null, "Macapá", est5);
+		Cidade c7 = new Cidade(null, "Manaus", est6);
+		Cidade c8 = new Cidade(null, "Salvador", est7);
+		Cidade c9 = new Cidade(null, "Fortaleza", est8);
+		Cidade c10 = new Cidade(null, "Vitória", est9);
+		Cidade c11 = new Cidade(null, "Goiânia", est10);
+		Cidade c12 = new Cidade(null, "São Luís", est11);
+		Cidade c13 = new Cidade(null, "Cuiabá", est12);
+		Cidade c14 = new Cidade(null, "Campo Grande", est13);
+		Cidade c15 = new Cidade(null, "Belém", est14);
+		Cidade c16 = new Cidade(null, "João Pessoa", est15);
+		Cidade c17 = new Cidade(null, "Curitiba", est16);
+		Cidade c18 = new Cidade(null, "Recife", est17);
+		Cidade c19 = new Cidade(null, "Teresina", est18);
+		Cidade c20 = new Cidade(null, "Rio de Janeiro", est19);
+		Cidade c21 = new Cidade(null, "Natal", est20);
+		Cidade c22 = new Cidade(null, "Porto Alegre", est21);
+		Cidade c23 = new Cidade(null, "Porto Velho", est22);
+		Cidade c24 = new Cidade(null, "Boa Vista", est23);
+		Cidade c25 = new Cidade(null, "Florianópolis", est24);
+		Cidade c26 = new Cidade(null, "Aracaju", est25);
+		Cidade c27 = new Cidade(null, "Palmas", est26);
+		Cidade c28 = new Cidade(null, "Brasilia", est27);
+		
 		
 		est1.getCidades().addAll(Arrays.asList(c1));
 		est2.getCidades().addAll(Arrays.asList(c2, c3));
+		est3.getCidades().addAll(Arrays.asList(c4));
+		est4.getCidades().addAll(Arrays.asList(c5));
+		est5.getCidades().addAll(Arrays.asList(c6));
+		est6.getCidades().addAll(Arrays.asList(c7));
+		est7.getCidades().addAll(Arrays.asList(c8));
+		est8.getCidades().addAll(Arrays.asList(c9));
+		est9.getCidades().addAll(Arrays.asList(c10));
+		est10.getCidades().addAll(Arrays.asList(c11));
+		est11.getCidades().addAll(Arrays.asList(c12));
+		est12.getCidades().addAll(Arrays.asList(c13));
+		est13.getCidades().addAll(Arrays.asList(c14));
+		est14.getCidades().addAll(Arrays.asList(c15));
+		est15.getCidades().addAll(Arrays.asList(c16));
+		est16.getCidades().addAll(Arrays.asList(c17));
+		est17.getCidades().addAll(Arrays.asList(c18));
+		est18.getCidades().addAll(Arrays.asList(c19));
+		est19.getCidades().addAll(Arrays.asList(c20));
+		est20.getCidades().addAll(Arrays.asList(c21));
+		est21.getCidades().addAll(Arrays.asList(c22));
+		est22.getCidades().addAll(Arrays.asList(c23));
+		est23.getCidades().addAll(Arrays.asList(c24));
+		est24.getCidades().addAll(Arrays.asList(c25));
+		est25.getCidades().addAll(Arrays.asList(c26));
+		est26.getCidades().addAll(Arrays.asList(c27));
+		est27.getCidades().addAll(Arrays.asList(c28));
 		
-		estadoRepository.saveAll(Arrays.asList(est1, est2));
-		cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
+		
+		
+		estadoRepository.saveAll(Arrays.asList(est1, est2,est3,est4, est5, est6, est7, est8, est9, est10, est11, est12, est13, est14, est15, est16, est17, est18, est19, est20, est21, est22, est23, est24, est25, est26, est27));
+		cidadeRepository.saveAll(Arrays.asList(c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28));
 		
 		
 		Cliente cli1 = new Cliente(null, "Maria Silva", "nicksaiddev@gmail.com", "36378912377", TipoCliente.PESSOAFISICA, pe.encode("123"));
